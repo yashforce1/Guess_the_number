@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number</title>
+    <link rel="stylesheet" href="guess.css">
+</head>
+<body>
+    <header>
+        <nav class="heading">
+            <a href="" id="home">Home</a>
+            <a href="">Youtube</a>
+        </nav>
+    </header>
+    
+        <h1>Guess the number Game  </h1>
+
+        <div class="container">
+            <form action="">
+                <h3>You have 10 attempts</h3>
+                <p class="head_guess"> start guessing </p>
+                <input type="text" placeholder="Enter the number" id="number" class="input"><br><br>
+                <input type="submit" id="submit_guess" class="enter">
+                <input type="submit" id="restart" class="enter" value="Restart" > 
+            </form>
+            <div class="context">
+                <p>previous guess : <span id="previous_guess">0</span></p>
+                <p class="count">Guess Remaining <span id="count_r">10</span></p>
+                <p id="low_high"></p>
+            </div>
+        </div>
+        <script src="guess.js"></script>
+</body>
+</html>
