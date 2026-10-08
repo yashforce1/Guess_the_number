@@ -398,6 +398,126 @@ h1 span {
     color: #a995ff;
 }
 
+.history-card {
+    margin-top: 18px;
+    padding: 23px 25px 12px;
+    border: 1px solid rgba(194, 187, 255, 0.11);
+    border-radius: 16px;
+    background: rgba(26, 28, 44, 0.72);
+    text-align: left;
+}
+
+.history-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 16px;
+}
+
+.section-kicker {
+    margin: 0 0 5px;
+    color: #9e91df;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.history-heading h2 {
+    margin: 0;
+    color: #efedf8;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    letter-spacing: -0.35px;
+}
+
+.history-limit {
+    padding: 7px 9px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.045);
+    color: #9a9bad;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.history-empty {
+    margin: 0;
+    padding: 19px 10px 22px;
+    color: #9091a5;
+    font-size: 12px;
+    text-align: center;
+}
+
+.history-empty[hidden] {
+    display: none;
+}
+
+.history-list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.history-entry {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) auto auto auto;
+    align-items: center;
+    gap: 15px;
+    min-height: 56px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.history-game-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.history-game-number {
+    color: #e2e0ee;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.history-date {
+    color: #85869b;
+    font-size: 10px;
+}
+
+.result-chip {
+    padding: 5px 8px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.result-win {
+    background: rgba(105, 219, 180, 0.1);
+    color: #91e5c5;
+}
+
+.result-loss {
+    background: rgba(255, 169, 144, 0.1);
+    color: #ffb7a3;
+}
+
+.history-attempts {
+    color: #a7a8ba;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.history-score {
+    min-width: 43px;
+    color: #c5baff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: right;
+    white-space: nowrap;
+}
+
 @media (max-width: 540px) {
     .site-header {
         width: calc(100% - 36px);
@@ -423,6 +543,35 @@ h1 span {
 
     #restart {
         min-height: 43px;
+    }
+
+    .history-card {
+        padding: 20px 16px 10px;
+    }
+
+    .history-entry {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 7px 10px;
+        padding: 9px 0;
+    }
+
+    .history-game-info {
+        grid-column: 1;
+    }
+
+    .result-chip {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    .history-attempts {
+        grid-column: 1;
+    }
+
+    .history-score {
+        grid-column: 2;
+        grid-row: 2;
     }
 }
 
