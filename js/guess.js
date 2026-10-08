@@ -30,36 +30,36 @@ function renderGameHistory() {
     historyList.replaceChildren();
     historyEmpty.hidden = gameHistory.length > 0;
 
-    gameHistory.forEach((game, index) => {
-        const row = document.createElement('li');
+    const rankedGames = [...gameHistory].sort((first, second) => {
+        const attemptsDifference = first.attempts - second.attempts;
+        if (attemptsDifference !== 0) return attemptsDifference;
+
+        return Date.parse(second.completedAt) - Date.parse(first.completedAt);
+    });
+
+    rankedGames.forEach((game, index) => {
+        const row = document.createElement('div');
         row.className = 'history-entry';
+        row.setAttribute('role', 'listitem');
 
-        const gameInfo = document.createElement('div');
-        gameInfo.className = 'history-game-info';
+        const line = document.createElement('div');
+        line.className = 'history-line';
 
-        const gameNumber = document.createElement('span');
-        gameNumber.className = 'history-game-number';
-        gameNumber.textContent = `Game ${index + 1}`;
+        const rank = document.createElement('span');
+        rank.className = 'history-rank';
+        rank.textContent = `Rank ${index + 1}`;
 
         const gameDate = document.createElement('time');
         gameDate.className = 'history-date';
         gameDate.dateTime = game.completedAt;
         gameDate.textContent = formatGameDate(game.completedAt);
-        gameInfo.append(gameNumber, gameDate);
 
-        const result = document.createElement('span');
-        result.className = `result-chip ${game.won ? 'result-win' : 'result-loss'}`;
-        result.textContent = game.won ? 'Won' : 'Lost';
+        const details = document.createElement('span');
+        details.className = 'history-details';
+        details.textContent = `Game ${index + 1} · Guesses: ${game.attempts} · Score: ${game.score} pts · ${game.won ? 'Won' : 'Lost'}`;
 
-        const attempts = document.createElement('span');
-        attempts.className = 'history-attempts';
-        attempts.textContent = `${game.attempts} ${game.attempts === 1 ? 'guess' : 'guesses'}`;
-
-        const score = document.createElement('span');
-        score.className = 'history-score';
-        score.textContent = `${game.score} pts`;
-
-        row.append(gameInfo, result, attempts, score);
+        line.append(rank, gameDate, details);
+        row.append(line);
         historyList.append(row);
     });
 }

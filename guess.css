@@ -460,23 +460,25 @@ h1 span {
 }
 
 .history-entry {
-    display: grid;
-    grid-template-columns: minmax(100px, 1fr) auto auto auto;
-    align-items: center;
-    gap: 15px;
-    min-height: 56px;
+    overflow-x: auto;
     border-top: 1px solid rgba(255, 255, 255, 0.07);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(169, 149, 255, 0.3) transparent;
 }
 
-.history-game-info {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
+.history-line {
+    display: inline-flex;
+    width: max-content;
+    align-items: center;
+    gap: 9px;
+    padding: 15px 0;
+    color: #bfc0d0;
+    font-size: 11px;
+    white-space: nowrap;
 }
 
-.history-game-number {
-    color: #e2e0ee;
-    font-size: 12px;
+.history-rank {
+    color: #c5baff;
     font-weight: 600;
 }
 
@@ -485,37 +487,8 @@ h1 span {
     font-size: 10px;
 }
 
-.result-chip {
-    padding: 5px 8px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 700;
-}
-
-.result-win {
-    background: rgba(105, 219, 180, 0.1);
-    color: #91e5c5;
-}
-
-.result-loss {
-    background: rgba(255, 169, 144, 0.1);
-    color: #ffb7a3;
-}
-
-.history-attempts {
-    color: #a7a8ba;
-    font-size: 11px;
-    white-space: nowrap;
-}
-
-.history-score {
-    min-width: 43px;
-    color: #c5baff;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    text-align: right;
-    white-space: nowrap;
+.history-details {
+    color: #d6d4e3;
 }
 
 @media (max-width: 540px) {
@@ -549,29 +522,9 @@ h1 span {
         padding: 20px 16px 10px;
     }
 
-    .history-entry {
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 7px 10px;
-        padding: 9px 0;
-    }
-
-    .history-game-info {
-        grid-column: 1;
-    }
-
-    .result-chip {
-        grid-column: 2;
-        grid-row: 1;
-        justify-self: end;
-    }
-
-    .history-attempts {
-        grid-column: 1;
-    }
-
-    .history-score {
-        grid-column: 2;
-        grid-row: 2;
+    .history-line {
+        gap: 7px;
+        font-size: 10px;
     }
 }
 
